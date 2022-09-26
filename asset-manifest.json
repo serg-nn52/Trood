@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/trood/static/css/main.1459f3df.css",
+    "main.js": "/trood/static/js/main.e03d10f3.js",
+    "index.html": "/trood/index.html",
+    "main.1459f3df.css.map": "/trood/static/css/main.1459f3df.css.map",
+    "main.e03d10f3.js.map": "/trood/static/js/main.e03d10f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1459f3df.css",
+    "static/js/main.e03d10f3.js"
+  ]
+}

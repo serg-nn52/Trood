@@ -22,9 +22,9 @@ const Row: React.FC<TRow> = (props) => {
       <div>{item.type}</div>
       <div>{item.conditions.replace(',', ', ')}</div>
       <div>$ {item.volume.toLocaleString()}</div>
-      <div>{item.roi}</div>
+      <div>{item.roi} %</div>
       <div>{item.free}</div>
-      <div>{item.hedge}</div>
+      <div>{item.hedge} %</div>
       <div>
         <button
           className="buyBtn"

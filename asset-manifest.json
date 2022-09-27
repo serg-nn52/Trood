@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Trood/static/css/main.744066ee.css",
-    "main.js": "/Trood/static/js/main.d94a858e.js",
+    "main.js": "/Trood/static/js/main.02d2032a.js",
     "index.html": "/Trood/index.html",
     "main.744066ee.css.map": "/Trood/static/css/main.744066ee.css.map",
-    "main.d94a858e.js.map": "/Trood/static/js/main.d94a858e.js.map"
+    "main.02d2032a.js.map": "/Trood/static/js/main.02d2032a.js.map"
   },
   "entrypoints": [
     "static/css/main.744066ee.css",
-    "static/js/main.d94a858e.js"
+    "static/js/main.02d2032a.js"
   ]
 }

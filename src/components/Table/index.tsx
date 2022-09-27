@@ -63,7 +63,7 @@ const Table: React.FC<IPropsTable> = (props) => {
       >
         {fieldNames.map((el: { [key: string]: string | undefined }) => {
           return (
-            <div id={Object.keys(el)[0]}>
+            <div id={Object.keys(el)[0]} key={Object.keys(el)[0]}>
               {Object.keys(el)[0] === 'name' && (
                 <div>
                   <select

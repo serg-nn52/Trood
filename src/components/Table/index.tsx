@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 import React from 'react';
@@ -73,13 +74,16 @@ const Table: React.FC<IPropsTable> = (props) => {
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       onFilter({ [e.target.name]: e.target.value })
                     }
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <option value="all">All</option>
                     <option value="green">Green</option>
                     <option value="yellow">Yellow</option>
                     <option value="red">Red</option>
                   </select>
-                  <label htmlFor="project">{filtres?.status}</label>
+                  <label htmlFor="project" onClick={(e) => e.stopPropagation()}>
+                    {filtres?.status}
+                  </label>
                 </div>
               )}
               {Object.keys(el)[0] === 'typeToken' && (
@@ -91,12 +95,15 @@ const Table: React.FC<IPropsTable> = (props) => {
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                       onFilter({ [e.target.name]: e.target.value })
                     }
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <option value="all">All</option>
                     <option value="TRST">TRST</option>
                     <option value="THT">THT</option>
                   </select>
-                  <label htmlFor="type">{filtres?.type}</label>
+                  <label htmlFor="type" onClick={(e) => e.stopPropagation()}>
+                    {filtres?.type}
+                  </label>
                 </div>
               )}
               {Object.values(el)[0]}

@@ -37,6 +37,16 @@ interface IPropsTable {
 const Table: React.FC<IPropsTable> = (props) => {
   const { items, sort, filtres, onSort, onFilter, onBuy } = props;
 
+  const fieldNames = [
+    { name: 'Project' },
+    { typeToken: 'Token type' },
+    { conditions: 'Conditions' },
+    { volume: 'Volume' },
+    { roi: 'ROi' },
+    { free: 'Free float' },
+    { hedge: 'Insurance hedge' },
+  ];
+
   return (
     <div className={style.table}>
       <nav
@@ -51,62 +61,49 @@ const Table: React.FC<IPropsTable> = (props) => {
             : onSort((e.target as HTMLElement).id)
         }
       >
-        <div id="name">
-          <select
-            name="status"
-            id="status"
-            defaultValue={filtres?.status}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              onFilter({ [e.target.name]: e.target.value })
-            }
-          >
-            <option value="all">All</option>
-            <option value="green">Green</option>
-            <option value="yellow">Yellow</option>
-            <option value="red">Red</option>
-          </select>
-          <label htmlFor="project">{filtres?.status}</label>
-          Project
-          <Arrow id="name" sort={sort} />
-        </div>
-        <div id="typeToken">
-          <select
-            name="type"
-            id="type"
-            defaultValue={filtres?.type}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              onFilter({ [e.target.name]: e.target.value })
-            }
-          >
-            <option value="all">All</option>
-            <option value="TRST">TRST</option>
-            <option value="THT">THT</option>
-          </select>
-          <label htmlFor="type">{filtres?.type}</label>
-          Token type
-          <Arrow id="typeToken" sort={sort} />
-        </div>
-        <div id="conditions">
-          Conditions
-          <Arrow id="conditions" sort={sort} />
-        </div>
-        <div id="volume">
-          Volume
-          <Arrow id="volume" sort={sort} />
-        </div>
-        <div id="roi">
-          ROi
-          <Arrow id="roi" sort={sort} />
-        </div>
-        <div id="free">
-          Free float
-          <Arrow id="free" sort={sort} />
-        </div>
-        <div id="hedge">
-          Insurance hedge
-          <Arrow id="hedge" sort={sort} />
-        </div>
-        <div />
+        {fieldNames.map((el: { [key: string]: string | undefined }) => {
+          return (
+            <div id={Object.keys(el)[0]}>
+              {Object.keys(el)[0] === 'name' && (
+                <div>
+                  <select
+                    name="status"
+                    id="status"
+                    defaultValue={filtres?.status}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      onFilter({ [e.target.name]: e.target.value })
+                    }
+                  >
+                    <option value="all">All</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="red">Red</option>
+                  </select>
+                  <label htmlFor="project">{filtres?.status}</label>
+                </div>
+              )}
+              {Object.keys(el)[0] === 'typeToken' && (
+                <div>
+                  <select
+                    name="type"
+                    id="type"
+                    defaultValue={filtres?.type}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      onFilter({ [e.target.name]: e.target.value })
+                    }
+                  >
+                    <option value="all">All</option>
+                    <option value="TRST">TRST</option>
+                    <option value="THT">THT</option>
+                  </select>
+                  <label htmlFor="type">{filtres?.type}</label>
+                </div>
+              )}
+              {Object.values(el)[0]}
+              <Arrow id={Object.keys(el)[0]} sort={sort} />
+            </div>
+          );
+        })}
       </nav>
       <ul>
         {items.map((el) => (

@@ -81,7 +81,7 @@ const Table: React.FC<IPropsTable> = (props) => {
                     <option value="yellow">Yellow</option>
                     <option value="red">Red</option>
                   </select>
-                  <label htmlFor="project" onClick={(e) => e.stopPropagation()}>
+                  <label htmlFor="status" onClick={(e) => e.stopPropagation()}>
                     {filtres?.status}
                   </label>
                 </div>
